@@ -749,3 +749,195 @@ a {
     text-align: center;
   }
 }
+
+/* ============ 复活版：细腻过渡动画系统 ============ */
+
+/* 锚点跳转时避开粘性 header，衔接不遮挡 */
+.projects,
+.hero {
+  scroll-margin-top: 72px;
+}
+
+/* 页面首次加载：整体淡入，避免白闪 */
+@keyframes page-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+body {
+  animation: page-in 0.45s ease-out both;
+}
+
+/* Hero 入场：标题 / 描述 / 按钮逐级上浮 */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.hero-title,
+.hero-description,
+.hero-actions {
+  opacity: 0;
+}
+
+body.is-loaded .hero-title {
+  animation: rise-in 0.7s cubic-bezier(0.2, 0, 0, 1) 0.05s both;
+}
+
+body.is-loaded .hero-description {
+  animation: rise-in 0.7s cubic-bezier(0.2, 0, 0, 1) 0.16s both;
+}
+
+body.is-loaded .hero-actions {
+  animation: rise-in 0.7s cubic-bezier(0.2, 0, 0, 1) 0.28s both;
+}
+
+/* 滚动显现：通用 reveal + 可变延迟交错 */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px) scale(0.985);
+  transition:
+    opacity 0.65s cubic-bezier(0.2, 0, 0, 1),
+    transform 0.65s cubic-bezier(0.2, 0, 0, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* 卡片悬浮更细腻：上浮 + 阴影加深 + 顶部光泽扫过 */
+.project-card {
+  transition:
+    box-shadow var(--transition-emphasized),
+    background-color var(--transition),
+    transform var(--transition-emphasized);
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+}
+
+.project-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.14) 50%, transparent 60%);
+  transform: translateX(-120%);
+  transition: transform 0.8s ease;
+  pointer-events: none;
+}
+
+.project-card:hover::after {
+  transform: translateX(120%);
+}
+
+/* 链接箭头：hover 时向右滑一段 */
+.project-link {
+  transition: color var(--transition), background-color var(--transition), transform var(--transition);
+}
+
+.project-link:hover {
+  transform: translateX(2px);
+}
+
+/* 按钮按压缩放 + 阴影呼吸 */
+.btn {
+  transition:
+    box-shadow var(--transition-emphasized),
+    background-color var(--transition),
+    color var(--transition),
+    border-color var(--transition),
+    transform 0.15s ease;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* 导航：滚动间谍高亮 + 下划线生长 */
+.nav-link.is-active {
+  color: var(--md-on-surface);
+  background-color: var(--md-state-hover);
+}
+
+/* 主题切换：View Transitions API 的柔和交叉淡化 */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.35s;
+  animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* 页脚链接：hover 上浮 */
+.footer-nav a {
+  transition: background-color var(--transition), color var(--transition), transform var(--transition);
+}
+
+.footer-nav a:hover {
+  transform: translateY(-1px);
+}
+
+/* 移动端菜单：弹簧感展开 */
+@media (max-width: 720px) {
+  .main-nav {
+    transition:
+      transform 0.38s cubic-bezier(0.2, 0, 0, 1),
+      opacity 0.28s ease;
+  }
+}
+
+/* 尊重减少动态偏好 */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    animation: none;
+  }
+
+  .hero-title,
+  .hero-description,
+  .hero-actions {
+    opacity: 1;
+  }
+
+  body.is-loaded .hero-title,
+  body.is-loaded .hero-description,
+  body.is-loaded .hero-actions {
+    animation: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .project-card:hover {
+    transform: none;
+  }
+
+  .project-card::after {
+    display: none;
+  }
+
+  .btn:active {
+    transform: none;
+  }
+}

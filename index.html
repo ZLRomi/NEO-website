@@ -3,24 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="NEO CN - 芒辰的项目与博客入口">
+  <meta name="description" content="NEO CN - 芒辰的项目与博客入口：NEO ClassBoard、NEO OS、NeoUI、MXOS、NEO Music">
+  <meta name="author" content="芒辰">
+  <meta name="keywords" content="NEO CN,芒辰,NEO OS,MXOS,NEO ClassBoard,NEO Music,NeoUI">
+  <meta name="theme-color" content="#006A5B" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0E1513" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://zlromi.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NEO CN">
+  <meta property="og:title" content="NEO CN - 记录 · 创造 · 分享">
+  <meta property="og:description" content="这里聚合了我的项目和博客，包括 NEO ClassBoard、NEO OS、NeoUI、MXOS、NEO Music 等。">
+  <meta property="og:url" content="https://zlromi.com/">
+  <meta property="og:image" content="https://zlromi.com/logo.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="NEO CN - 记录 · 创造 · 分享">
+  <meta name="twitter:description" content="这里聚合了我的项目和博客，包括 NEO ClassBoard、NEO OS、NeoUI、MXOS、NEO Music 等。">
   <link rel="icon" type="image/svg+xml" href="logo.svg">
-  <title>NEO CN</title>
+  <title>NEO CN - 记录 · 创造 · 分享</title>
+  <link rel="preload" href="MiSans-subset.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css">
   <style>
     @font-face {
       font-family: 'MiSans';
-      src: url('MiSans-Normal.ttf') format('truetype');
+      src: url('MiSans-subset.woff2') format('woff2'),
+           url('MiSans-Normal.ttf') format('truetype');
       font-weight: 400;
       font-style: normal;
+      font-display: swap;
     }
   </style>
 </head>
-<body>
+<body id="top">
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#" class="logo" id="top">
-        <svg class="logo-svg" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <a href="#top" class="logo">
+        <svg class="logo-svg" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <rect x="5" y="8" width="6" height="20" rx="3" class="logo-bg" />
           <rect x="14" y="8" width="17" height="6" rx="3" class="logo-bg" />
           <rect x="14" y="22" width="17" height="6" rx="3" class="logo-bg" />
@@ -28,9 +45,9 @@
         <span class="logo-text">NEO CN</span>
       </a>
       <nav class="main-nav" aria-label="主导航">
-        <a href="https://blog.neocn.top/#home" class="nav-link">博客</a>
+        <a href="https://blog.zlromi.com/#home" class="nav-link">博客</a>
         <a href="#projects" class="nav-link">项目</a>
-        <a href="https://m.music.neocn.top" class="nav-link">音乐</a>
+        <a href="https://music.zlromi.com" class="nav-link">音乐</a>
       </nav>
       <div class="header-actions">
         <button class="theme-toggle" aria-label="切换主题" title="切换主题">
@@ -56,27 +73,28 @@
           </p>
           <div class="hero-actions">
             <a href="#projects" class="btn btn-primary">查看项目</a>
-            <a href="https://blog.neocn.top/#home" class="btn btn-secondary">博客</a>
+            <a href="https://blog.zlromi.com/#home" class="btn btn-secondary">博客</a>
           </div>
         </div>
+      </div>
     </section>
 
     <section class="projects" id="projects">
       <div class="container">
-        <header class="section-header">
+        <header class="section-header reveal">
           <h2 class="section-title">项目</h2>
         </header>
         <div class="project-grid">
-          <article class="project-card">
+          <article class="project-card reveal" style="--reveal-delay: 0ms">
             <div class="project-meta">
               <span class="project-tag">桌面应用</span>
               <span class="project-status">已发布</span>
             </div>
             <h3 class="project-title">NEO ClassBoard</h3>
             <p class="project-desc">教师桌面课表小组件，用 PySide6 + QML 写成。</p>
-            <a href="https://board.neocn.top/" class="project-link">查看 →</a>
+            <a href="https://board.zlromi.com/" class="project-link">查看 →</a>
           </article>
-          <article class="project-card">
+          <article class="project-card reveal" style="--reveal-delay: 80ms">
             <div class="project-meta">
               <span class="project-tag">操作系统</span>
               <span class="project-status">开发中</span>
@@ -85,10 +103,10 @@
             <p class="project-desc">用 C 和汇编写的 32 位 x86 操作系统，支持 GUI、多任务与 FAT12 文件系统。</p>
             <div class="project-links">
               <a href="https://github.com/ZLRomi/NEO-OS" class="project-link">GitHub →</a>
-              <a href="https://blog.neocn.top/#%E4%BB%8E%E9%9B%B6%E6%9E%84%E5%BB%BA%E6%88%91%E7%9A%84%E8%87%AA%E7%A0%94%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20NEO%20OS" class="project-link">文章 →</a>
+              <a href="https://blog.zlromi.com/#%E4%BB%8E%E9%9B%B6%E6%9E%84%E5%BB%BA%E6%88%91%E7%9A%84%E8%87%AA%E7%A0%94%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20NEO%20OS" class="project-link">文章 →</a>
             </div>
           </article>
-          <article class="project-card">
+          <article class="project-card reveal" style="--reveal-delay: 160ms">
             <div class="project-meta">
               <span class="project-tag">Web OS</span>
               <span class="project-status">开发中</span>
@@ -97,10 +115,10 @@
             <p class="project-desc">HTML 伪系统，模拟手机界面和交互。</p>
             <div class="project-links">
               <a href="https://www.bilibili.com/video/BV1qWAwzxEJ2/" class="project-link">B站 →</a>
-              <a href="https://blog.neocn.top/#NeoUI%20%E7%9A%84%E8%AF%9E%E7%94%9F%EF%BC%9A%E4%B8%80%E4%B8%AA%E5%88%9D%E4%B8%AD%E7%94%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E6%8E%A2%E7%B4%A2" class="project-link">文章 →</a>
+              <a href="https://blog.zlromi.com/#NeoUI%20%E7%9A%84%E8%AF%9E%E7%94%9F%EF%BC%9A%E4%B8%80%E4%B8%AA%E5%88%9D%E4%B8%AD%E7%94%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E6%8E%A2%E7%B4%A2" class="project-link">文章 →</a>
             </div>
           </article>
-          <article class="project-card">
+          <article class="project-card reveal" style="--reveal-delay: 240ms">
             <div class="project-meta">
               <span class="project-tag">Web OS</span>
               <span class="project-status">已发布</span>
@@ -108,12 +126,12 @@
             <h3 class="project-title">MXOS</h3>
             <p class="project-desc">纯前端实现的 Web 桌面操作系统，支持 .mx 应用安装包。</p>
             <div class="project-links">
-              <a href="https://mxos.neocn.top" class="project-link">在线体验 →</a>
+              <a href="https://mxos.zlromi.com" class="project-link">在线体验 →</a>
               <a href="https://github.com/ZLRomi/MXOS" class="project-link">GitHub →</a>
-              <a href="https://blog.neocn.top/#MXOS%201.2.0%EF%BC%9A%E4%B8%80%E4%B8%AA%E8%BF%90%E8%A1%8C%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E6%A1%8C%E9%9D%A2%E4%BC%AA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F" class="project-link">文章 →</a>
+              <a href="https://blog.zlromi.com/#MXOS%201.2.0%EF%BC%9A%E4%B8%80%E4%B8%AA%E8%BF%90%E8%A1%8C%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E6%A1%8C%E9%9D%A2%E4%BC%AA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F" class="project-link">文章 →</a>
             </div>
           </article>
-          <article class="project-card">
+          <article class="project-card reveal" style="--reveal-delay: 320ms">
             <div class="project-meta">
               <span class="project-tag">音乐播放器</span>
               <span class="project-status">已发布</span>
@@ -121,9 +139,9 @@
             <h3 class="project-title">NEO Music</h3>
             <p class="project-desc">网页与安卓双端的音乐播放器，支持逐字歌词、无损音质与歌单导入。</p>
             <div class="project-links">
-              <a href="https://m.music.neocn.top" class="project-link">介绍页 →</a>
-              <a href="https://music.neocn.top" class="project-link">在线使用 →</a>
-              <a href="https://m.music.neocn.top/NEO-Music.apk" class="project-link">下载 App →</a>
+              <a href="https://music.zlromi.com" class="project-link">介绍页 →</a>
+              <a href="https://d.music.zlromi.com" class="project-link">在线使用 →</a>
+              <a href="https://music.zlromi.com/NEO-Music.apk" class="project-link">下载 App →</a>
             </div>
           </article>
         </div>
@@ -142,17 +160,17 @@
         <span>NEO CN</span>
       </div>
       <nav class="footer-nav" aria-label="页脚导航">
-        <a href="https://blog.neocn.top/#home">博客</a>
-        <a href="https://m.music.neocn.top">音乐</a>
+        <a href="https://blog.zlromi.com/#home">博客</a>
+        <a href="https://music.zlromi.com">音乐</a>
         <a href="https://b23.tv/erf6TIV">B站</a>
         <a href="https://github.com/ZLRomi">GitHub</a>
         <a href="mailto:mang26@qq.com">QQ邮箱</a>
         <a href="mailto:mangc26@outlook.com">Outlook</a>
       </nav>
-      <p class="footer-copy">© 2026 NEO CN</p>
+      <p class="footer-copy">© <span id="year">2026</span> NEO CN</p>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
