@@ -901,8 +901,13 @@ body.is-loaded .hero-actions {
   }
 }
 
-/* 尊重减少动态偏好 */
-@media (prefers-reduced-motion: reduce) {
+/* 品牌选中色（取自 ZLRomi-UI） */
+::selection {
+  background-color: var(--md-primary);
+  color: var(--md-on-primary);
+}
+
+/* 尊重减少动态偏好 */@media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
